@@ -14,6 +14,7 @@ const ConnectedPages = () => {
   const [loading, setLoading] = useState(true); // ✅ loading state
 
   // ✅ API CALL
+  // Fetch all users from the API when the component mounts
   useEffect(() => {
     axios
       .get("https://sat-tara-backend.vercel.app/api/user/getAllUsers")
