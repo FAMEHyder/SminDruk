@@ -1,0 +1,1 @@
+# AI-Based Digital Marketing Server | Trend Detection & Campaign Automation
