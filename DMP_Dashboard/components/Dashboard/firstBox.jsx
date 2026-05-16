@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Box, Paper, Typography } from '@mui/material';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { Box, Paper, Typography } from '@mui/material'
+import GroupsIcon from '@mui/icons-material/Groups'
 import FacebookIcon from '@mui/icons-material/Facebook';
-import ReplayIcon from '@mui/icons-material/Replay';
+import ReplayIcon from '@mui/icons-material/Replay'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 export default function FirstBox() {
     return (

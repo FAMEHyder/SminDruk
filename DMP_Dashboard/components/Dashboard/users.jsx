@@ -26,7 +26,7 @@ const ConnectedPages = () => {
         console.error("API Error:", err);
         setLoading(false);
       });
-  }, []);
+  }, [])
 
   // ✅ Date Format Function
   const formatDate = (date) => {

@@ -20,7 +20,7 @@ export const useAuthStore = create((set, get) => ({
             set({ user: response.data.data });
             console.log("User data in authcontext store ", response.data.data);
         } catch (error) {
-            console.error('Failed to load user data:', error);
+            console.error('Failed to load user data:', error)
             get().logout();
         }
     },
@@ -43,7 +43,7 @@ export const useAuthStore = create((set, get) => ({
 
     logout: () => {
         set({ user: null, token: null, userId: null });
-        localStorage.removeItem('authToken');
+        localStorage.removeItem('authToken')
     },
 
     checkAuthentication: (navigate) => {

@@ -118,7 +118,7 @@ const Scheduler = () => {
       fd.append("toPage", toPage);
       fd.append("secretKey", secretKey);
 
-      // 🔥 FIX: SEND postType
+      //  FIX: SEND postType
       fd.append(
         "postType",
         postType === POST_TYPES.PHOTO

@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube, FaTiktok, FaPinterest, 
 import { SiBluesky, SiThreads, SiMastodon } from "react-icons/si";
 import { useAuthStore } from "@/StateManagment/Zustand";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 const menuItems = [
   {
