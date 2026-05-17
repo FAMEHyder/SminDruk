@@ -50,13 +50,14 @@ const Navbar = () => {
     { label: "SIGN IN", path: "/SignIn" },
     { label: "CONTACT US", path: "/Contact" },
     { label: "ABOUT US", path: "/About" },
-    { label: "PROFILE", path: "/Profile" },
+    { label: "PROFILE", path: "/Test" },
   ];
 
   // MORE DROPDOWN ITEMS
   const moreItems = [
     { label: "PRIVACY POLICY", path: "/PrivacyPolicy" },
     { label: "INSTRUCTION", path: "/User-data-deletion-instruction" },
+    { label: "PROFILE", path: "/Profile" },
     { label: "LOGOUT", path: "/logout" },
   ];
 

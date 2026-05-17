@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Home from './Home/page.jsx';
+import Home from './Home/page.jsx'
 
 
 
@@ -8,5 +8,5 @@ export default function Mainpage() {
     <div>
        <Home />
     </div>
-  );
+  )
 }
