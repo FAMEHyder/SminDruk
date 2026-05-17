@@ -51,7 +51,8 @@ const ContactUs = () => {
           alert("Failed to send the message, please try again.");
         });
     },
-  })
+  });
+
   return (
     <Box
       sx={{
