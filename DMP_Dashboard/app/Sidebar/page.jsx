@@ -28,7 +28,7 @@ const sidebarItems = [
   { label: 'TRR Pages', icon: <Settings />, path: '/Tokens-rotation-required-pages' },
   { label: 'Post & Schedual', icon: <Money />, path: '/Post' },
   { label: 'Active Users', icon: <SyncAlt />, path: '/Users' },
-  { label: 'Connect Channals', icon: <Description />, path: '/Channals' },
+  { label: 'Get Post', icon: <Description />, path: '/Postlink' },
   { label: 'Suggestion', icon: <ShoppingCart />, path: '/purchase' },
   { label: 'Reviews', icon: <Reviews />, path: '/reviews' },
   { label: 'Reports', icon: <Assessment />, path: '/reports' },
