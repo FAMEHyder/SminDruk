@@ -86,7 +86,7 @@ const Navbar = () => {
 
         </Box>
 
-        {/* MAIN TOOLBAR */}
+        {/* MAIN TOOOLBAR */}
         <Toolbar sx={{ height: "64px", bgcolor: "#09362f" }}>
           {/* LOGO */}
           <Box display="flex" alignItems="center" flexGrow={1}>

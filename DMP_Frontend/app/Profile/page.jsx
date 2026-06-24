@@ -2,24 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
-import {
-  Box,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-  TextField,
-  FormControl,
-  InputLabel,
-  OutlinedInput,
-  Select,
-  MenuItem,
-  Button,
-  Grid,
-  Tabs,
-  Tab,
-  Avatar,
-} from "@mui/material";
+import { Box, Typography, List, ListItem, ListItemText, TextField, FormControl, InputLabel, OutlinedInput, Select, MenuItem, Button, Grid, Tabs, Tab, Avatar,} from "@mui/material";
 
 import CreatePostModal from "../Post_Model/page.jsx";
 import { useAuthStore } from "../../StateManagment/Zustand.jsx";
