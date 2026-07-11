@@ -50,7 +50,7 @@ app.use("/api", facebookRoutes);
 const port = process.env.PORT || 8009;
 
 app.get("/", (req, res) => {
-  res.send("✅ Ong lay bc");
+  res.send("😎Welcome genious in coder space");
 });
 
 app.listen(port, async () => {
