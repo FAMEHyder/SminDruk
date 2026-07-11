@@ -93,7 +93,7 @@ Automated Marketing & Engagement
 ## 🧠 AI & Machine Learning
 
 ### Algorithms Used
-- K-Means Clustering
+- K-Means Clustering // for grouping similar pattern data
 - DBSCAN
 - Predictive Analytics Models
 
