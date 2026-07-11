@@ -7,7 +7,7 @@ export const useAuthStore = create((set, get) => ({
     userId: null,
     // productDetails: [],
 
-    // Fetch user data
+    // Fetch user data from the backend using the userId and token
     fetchUserData: async () => {
         const { token, user} = get();
         console.log("Now user in fetchuserData is : ",user)
