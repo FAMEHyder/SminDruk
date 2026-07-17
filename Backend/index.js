@@ -1,59 +1,51 @@
+import "dotenv/config";
 import express from "express";
-import dotenv from "dotenv";
-import DataBaseConnection from "./database/database.js";
-import cors from "cors";
-import userroute from "./routes/user.routes.js";
-import authRoutes from "./routes/auth.routes.js";
-import facebookRoutes from "./routes/connectedPages.routes.js";
-import path from "path";
-import { fileURLToPath } from "url";
-import cookieParser from "cookie-parser";
-
-dotenv.config();
+import logger from "./utils/logger.js";
 
 const app = express();
+const PORT = Number(process.env.PORT) || 5000;
+let isReady = false;
 
-// ✅ Body parsers (ONLY ONCE, with limit)
-app.use(express.json({ limit: process.env.LIMITS || "10mb" }));
-app.use(express.urlencoded({ extended: true, limit: process.env.LIMITS || "10mb" }));
-
-// ✅ Cookie parser (MUST be before routes)
-app.use(cookieParser());
-  
-// ✅ CORS (must be before routes)
-const allowedOrigins = [
-  "http://localhost:3000",
-  "http://localhost:3001",
-  "http://localhost:5678",
-  "https://smindruk.vercel.app",
-];
-
-app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
-);
-
-const _filename = fileURLToPath(import.meta.url);
-const _dirname = path.dirname(_filename);
-const mediaPath = path.join(_dirname, "..", "media");
-
-app.use("/media", express.static(mediaPath));
-
-// ✅ Routes
-app.use("/user", userroute);
-app.use("/auth", authRoutes);
-app.use("/api", facebookRoutes);
-
-// ✅ Start server AFTER everything
-const port = process.env.PORT || 8009;
-
-app.get("/", (req, res) => {
-  res.send("✅ Ong lay bc");
+// Railway probes this path during deploy — must respond before heavy startup work finishes.
+app.get("/health", (_req, res) => {
+  res.status(200).json({
+    status: isReady ? "ok" : "starting",
+    service: "zarshan-backend",
+    ready: isReady,
+  });
 });
 
-app.listen(port, async () => {
-  await DataBaseConnection();
-  console.log(`✅ Server running at http://localhost:${port}`);
+app.get("/", (_req, res) => {
+  res.status(200).json({ status: "ok", service: "zarshan-backend" });
 });
+
+const server = app.listen(PORT, "0.0.0.0", () => {
+  logger.info(`Zarshan backend listening on port ${PORT}`);
+  logger.info(`Health check: http://0.0.0.0:${PORT}/health`);
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) {
+    logger.info(`Railway public URL: https://${process.env.RAILWAY_PUBLIC_DOMAIN}`);
+    logger.info(`If the public URL fails, set Networking target port to ${PORT}`);
+  }
+
+  import("./bootstrap.js")
+    .then(({ bootstrap }) => bootstrap(app, () => { isReady = true; }))
+    .catch((error) => {
+      logger.error(`Bootstrap failed: ${error.message}`);
+      logger.error(error.stack);
+    });
+});
+
+server.on("error", (error) => {
+  logger.error(`Server failed to start: ${error.message}`);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (reason) => {
+  logger.error(`Unhandled rejection: ${reason?.stack || reason}`);
+});
+
+process.on("uncaughtException", (error) => {
+  logger.error(`Uncaught exception: ${error.stack || error.message}`);
+});
+
+export default app;
