@@ -16,7 +16,7 @@ A complete, production-quality frontend for **Zarshan**, a social media manageme
 - **Theming:** next-themes (dark mode default, light mode toggle)
 
 ## Getting Started
-
+# use these command properly(step-by-setp)
 ```bash
 npm install
 npm run dev
